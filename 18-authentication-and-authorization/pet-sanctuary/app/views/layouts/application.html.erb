@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PetSanctuary</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h3><%= flash[:notice] %></h3>
+    <% if current_user %>
+      <h3>You are logged in as: <%= current_user.username %></h3>
+      <%= link_to "Log Out", sessions_path, method: :delete %>
+    <% else %>
+      <%= link_to "Log In", new_session_path %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<%= form_tag "/pets" do %>
+  <%= label :pet, :name %>
+  <%= text_field :pet, :name %>
+
+  <%= label :pet, :age %>
+  <%= text_field :pet, :age %>
+
+  <%= submit_tag "Save Pet" %>
+<% end %>

@@ -1,0 +1,6 @@
+<p id="notice"><%= notice %></p>
+<h2><%= @pet.name %></h2>
+<p>Belongs to <%= @pet.user.username %></p>
+
+<%= link_to 'Edit', edit_pet_path(@pet) %> |
+<%= link_to 'Back', pets_path %>

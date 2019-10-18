@@ -1,0 +1,6 @@
+<p id="notice"><%= notice %></p>
+<h2><%= @user.username %></h2>
+
+<%= link_to 'Delete', user_path(@user), method: :delete %>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

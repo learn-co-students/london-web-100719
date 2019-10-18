@@ -1,0 +1,21 @@
+<% if @pet.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being created:</h2>
+
+    <ul>
+    <% @pet.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@pet) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :age %>
+  <%= f.text_field :age %>
+  
+  <%= f.submit %>
+<% end %>
