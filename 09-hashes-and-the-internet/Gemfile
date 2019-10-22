@@ -1,0 +1,4 @@
+# We add all the gems this app needs to work in here. Then, people using our code can just run bundle and all the gems and all their dependencies will be installed
+source 'https://rubygems.org'
+gem "rest-client"
+gem "pry"
