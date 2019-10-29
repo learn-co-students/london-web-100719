@@ -1,0 +1,25 @@
+<h1> 
+  woof 🐕
+</h1>
+
+<a href="/dogs/new">
+  create a new 🐶
+</a>
+
+<br>
+
+<img src="https://loremflickr.com/320/240/dog" />
+
+<ul>
+  <% @dogs.each do |dog| %>
+    <li>
+      <form method="post" action="/dogs/<%= dog.id %>">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="submit" value="delete">
+      </form>
+      <a href="/dogs/<%= dog.id %>">
+        <%= dog.name %> is <%= dog.age %> years old
+      </a>
+    </li>
+  <% end %>
+</ul>
