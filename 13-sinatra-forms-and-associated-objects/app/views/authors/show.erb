@@ -1,0 +1,13 @@
+<h2><%= "#{@author.first_name} #{@author.last_name}" %></h2>
+<a href="/authors/<%= @author.id %>/edit">Edit Author</a>
+
+<h3>This author has written the following books</h3>
+<!-- Iterate through all the books that belong to this instance of author and output its title, with a link to that book's show page.  -->
+<% @author.books.each do |book| %>
+  <h4><a href="/books/<%= book.id %>"><%= book.title %></a></h4>
+<% end %>
+
+<form class="" action="/authors/<%= @author.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" name="" value="Delete Author">
+</form>

@@ -1,0 +1,10 @@
+<h2><%= @book.title %></h2>
+<!-- Link to the show page for the author that this instance of book belongs to -->
+<h3>by <a href="/authors/<%= @book.author.id %>"><%= @book.author_full_name %></a></h3>
+<p><%= @book.snippet %></p>
+<a href="/books/<%= @book.id %>/edit">Edit Book</a>
+
+<form class="" action="/books/<%= @book.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" name="" value="Delete Book">
+</form>

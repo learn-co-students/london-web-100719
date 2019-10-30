@@ -1,0 +1,26 @@
+<form class="" action="/authors/<%= @author.id %>" method="POST">
+
+  <label for="">First Name</label>
+  <!-- These nested input field names mean that params will create a corresponding hash for that resource and keys within that to represent the appopriate fields. e.g. author[first_name] will lead to params looking like { "author" => first_name => ""} -->
+  <input type="text" name="author[first_name]" value=""><br>
+
+  <label for="">Last Name</label>
+  <input type="text" name="author[last_name]" value=""><br>
+
+  <label for="">Book 1 Title</label>
+  <!-- Using [] will create an array within our nested hash. That array will contain hashes with keys in them e.g. author[books][][title] will lead to params looking like { "author" => books => [{ "title" => "" }]}. This means we can create multiple books to associate with the author we are creating. -->
+  <input type="text" name="author[books][][title]" value=""><br>
+  <label for="">Book 1 Snippet</label>
+  <input type="text" name="author[books][][snippet]" value=""><br>
+
+  <label for="">Book 2 Title</label>
+  <input type="text" name="author[books][][title]" value=""><br>
+  <label for="">Book 2 Snippet</label>
+  <input type="text" name="author[books][][snippet]" value=""><br>
+
+  <input type="submit" name="" value="Save Author">
+
+  <% if @author.id %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+</form>

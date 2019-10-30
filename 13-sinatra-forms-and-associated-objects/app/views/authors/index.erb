@@ -1,0 +1,8 @@
+<h2>Authors</h2>
+<% @authors.each do |author| %>
+  <div>
+    <h3>
+      <a href="/authors/<%= @author.id %>"><%= "#{author.first_name} #{author.last_name}" %></a>
+    </h3>
+  </div>
+<% end %>

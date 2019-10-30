@@ -1,0 +1,23 @@
+<form class="" action="/books/<%= @book.id %>" method="POST">
+  <label for="">Title</label>
+  <input type="text" name="title" value="<%= @book.title %>"><br>
+
+  <label for="">Author</label>
+  <!-- A dropdown menu, its name will have a corresponding key in the params hash. The value of that key will be the value of whichever option is selected when the form is submitted. -->
+  <select class="" name="author_id">
+    <!-- Iterate through every author in the database. -->
+    <% Author.all.each do |author| %>
+      <!-- For every author, create a new option. That option's text (what the user will actually see on the page) will be the author's first_name and last_name, but the actual value that will be added to params when the form is submitted is the author's id. -->
+      <option value="<%= author.id %>"><%= author.full_name %></option>
+    <% end %>
+  </select><br>
+
+  <label for="">Snippet</label>
+  <input type="text" name="snippet" value="<%= @book.snippet %>"><br>
+
+  <input type="submit" name="" value="Save Book">
+
+  <% if @book.id %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+</form>
