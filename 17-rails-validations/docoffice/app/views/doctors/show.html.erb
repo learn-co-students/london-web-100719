@@ -1,0 +1,21 @@
+<h1>
+  doctor <%= @doctor.name %> 👩‍⚕️👨‍⚕️
+</h1>
+
+<p>
+  this doctor specializes in: <%= @doctor.skillz %>
+</p>
+
+<ul>
+  <% if @doctor.has_patients? %>
+    <% @doctor.patients.each do |patient| %>
+      <li>
+        <%= link_to "see #{patient.name}'s profile", patient %>
+      </li>
+    <% end %>
+  <% else %>
+    <p>
+      This doctor has no patients
+    <p>
+  <% end  %>
+</ul>

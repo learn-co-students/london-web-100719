@@ -1,0 +1,11 @@
+<h1>
+  doctor <%= @doctor.name %> 👩‍⚕️👨‍⚕️
+</h1>
+
+<ul>
+  <% @doctor.patients.each do |patient| %>
+    <li>
+      <%= link_to "see #{patient.name}'s profile", patient %>
+    </li>
+  <% end %>
+</ul>

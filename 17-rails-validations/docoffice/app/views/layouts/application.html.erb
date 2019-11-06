@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Docoffice</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% flash[:errors] ||= []  %>
+
+    <% if flash[:errors].size > 0 %>
+      <% flash[:errors].each do |error| %>
+        <p>
+          <%= error %>
+        </p>
+      <% end %>
+    <% end %>
+   
+    <h1>
+      <%= link_to 'doc_app 🏥', doctors_path %>
+    </h1>
+
+    <%= yield %>
+  </body>
+</html>
