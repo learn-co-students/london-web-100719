@@ -1,0 +1,13 @@
+<h1>
+  patient <%= @patient.name %> 👩‍⚕️👨‍⚕️
+</h1>
+
+<p>
+ this patient is treated by dr <%= @patient.doctor.name %>
+</p>
+
+<p>
+  this patient's condition is <%= @patient.condition %>
+</p>
+
+<%= link_to 'all patients', patients_path %>
