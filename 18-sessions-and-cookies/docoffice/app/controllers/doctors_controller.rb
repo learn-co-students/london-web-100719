@@ -1,11 +1,16 @@
 class DoctorsController < ApplicationController
   before_action :set_doctor, only: [:show, :edit, :update]
-
+  before_action :authorized, except: [:index]
+  
   def index
     @doctors = Doctor.all
   end
 
   def show
+    # byebug
+    # if @doctor == nil
+    #   redirect_to doctors_path
+    # end
   end
 
   def new

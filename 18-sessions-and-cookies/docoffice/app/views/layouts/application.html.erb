@@ -9,7 +9,20 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body> 
+
+    <div>
+      <% if !logged_in? %>
+        <%= 'please log in:' %>
+        <br>
+        <%= link_to 'login', login_path %>
+      <% else %>
+        <%= 'hi ' + current_user.username %>
+        <br>
+        <%= link_to 'log out', logout_path, method: 'DELETE' %>
+      <% end %>
+    </div>
+
     <% flash[:errors] ||= []  %>
 
     <% if flash[:errors].size > 0 %>
