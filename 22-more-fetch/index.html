@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>star wars</title>
+    <style>
+      @font-face {
+        font-family: "star_jediregular";
+        src: url("starjedi-webfont.woff2") format("woff2"),
+          url("starjedi-webfont.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      body {
+        margin: 0;
+        background: black;
+        color: white;
+        font-family: "star_jediregular";
+      }
+      input[type="submit"] {
+        font-family: "star_jediregular";
+        width: 10em;
+        background: yellow;
+        border: none;
+      }
+      h1 {
+        color: yellow;
+      }
+      main {
+        max-width: 800px;
+        margin: auto;
+        border-left: 1px white solid;
+        border-right: 1px white solid;
+        min-height: 100vh;
+        padding: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>star wars things</h1>
+
+      <form id="person-form">
+        <p>new person</p>
+        <label>
+          name
+          <input name="name" type="text" />
+        </label>
+        <label>
+          birth year
+          <input name="birth_year" type="text" />
+        </label>
+
+        <input type="submit" />
+      </form>
+
+      <form id="planet-form">
+        <p>new planet</p>
+        <label>
+          name
+          <input name="name" type="text" />
+        </label>
+        <label>
+          population
+          <input name="population" type="number" />
+        </label>
+
+        <input type="submit" />
+      </form>
+      <h3>people</h3>
+      <ul>
+        <li>Person Name</li>
+      </ul>
+      <h3>
+        planets
+      </h3>
+      <ol>
+        <li>planet fdssfd</li>
+      </ol>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

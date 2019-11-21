@@ -1,0 +1,126 @@
+{
+  "people": [
+    {
+      "name": "Luke Skywalker",
+      "id": 1,
+      "birth_year": "19BBY"
+    },
+    {
+      "name": "C-3PO",
+      "id": 2,
+      "birth_year": "112BBY"
+    },
+    {
+      "name": "R2-D2",
+      "id": 3,
+      "birth_year": "33BBY"
+    },
+    {
+      "name": "Darth Vader",
+      "id": 4,
+      "birth_year": "41.9BBY"
+    },
+    {
+      "name": "Leia Organa",
+      "id": 5,
+      "birth_year": "19BBY"
+    },
+    {
+      "name": "Owen Lars",
+      "id": 6,
+      "birth_year": "52BBY"
+    },
+    {
+      "name": "Beru Whitesun lars",
+      "id": 7,
+      "birth_year": "47BBY"
+    },
+    {
+      "name": "R5-D4",
+      "id": 8,
+      "birth_year": "unknown"
+    },
+    {
+      "name": "Biggs Darklighter",
+      "id": 9,
+      "birth_year": "24BBY"
+    },
+    {
+      "name": "sdfdsfg",
+      "birth_year": "sdfsdfg",
+      "id": 14
+    },
+    {
+      "name": "sadf",
+      "birth_year": "asf",
+      "id": 15
+    },
+    {
+      "name": "dfhd",
+      "birth_year": "346r5ey",
+      "id": 16
+    }
+  ],
+  "planets": [
+    {
+      "name": "Alderaan",
+      "id": 1,
+      "population": "2000000000"
+    },
+    {
+      "name": "Yavin IV",
+      "id": 2,
+      "population": "1000"
+    },
+    {
+      "name": "Hoth",
+      "id": 3,
+      "population": "unknown"
+    },
+    {
+      "name": "Dagobah",
+      "id": 4,
+      "population": "unknown"
+    },
+    {
+      "name": "Bespin",
+      "id": 5,
+      "population": "6000000"
+    },
+    {
+      "name": "Endor",
+      "id": 6,
+      "population": "30000000"
+    },
+    {
+      "name": "Naboo",
+      "id": 7,
+      "population": "4500000000"
+    },
+    {
+      "name": "Coruscant",
+      "id": 8,
+      "population": "1000000000000"
+    },
+    {
+      "name": "Kamino",
+      "id": 9,
+      "population": "1000000000"
+    },
+    {
+      "name": "Geonosis",
+      "id": 10,
+      "population": "100000000000"
+    },
+    {
+      "name": "sdg",
+      "population": "123",
+      "id": 11
+    },
+    {
+      "name": "srgsrg",
+      "population": "345",
+      "id": 12
+    }
+  ]
+}
