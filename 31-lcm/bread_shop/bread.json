@@ -1,0 +1,8 @@
+{
+  "breads": [
+    { "pizzafied": false, "name": "pumpernickel" },
+    { "pizzafied": false, "name": "sourdough" },
+    { "pizzafied": false, "name": "brioche" },
+    { "pizzafied": false, "name": "bread2" }
+  ]
+}
