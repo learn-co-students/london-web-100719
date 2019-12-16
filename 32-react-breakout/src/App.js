@@ -1,16 +1,28 @@
 import React from 'react'
 import './App.css'
+import NewTodoForm from './components/NewTodoForm'
+import TodoList from './components/TodoList'
 
 class App extends React.Component {
-  todoId = 3
-
   state = {
-    todos: [
-      { id: 1, title: 'buy milk' },
-      { id: 2, title: 'cook dinner' },
-      { id: 3, title: 'conquer the world' }
-    ],
-    todoInput: ''
+    todos: [],
+    todoInput: 'howdy'
+  }
+
+  toggleComplete = id => {
+    const todos = this.state.todos.map(todo =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    )
+
+    //  state = [1,2,3,4]  << 5
+    //  newState = [1,2,7,4] << 6
+    this.setState({ todos })
+  }
+
+  getTodos = () => {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+      .then(response => response.json())
+      .then(todos => this.setState({ todos }))
   }
 
   updateTodoInput = e => {
@@ -18,8 +30,11 @@ class App extends React.Component {
   }
 
   addTodo = title => {
-    const newTodo = { id: ++this.todoId, title }
-    this.setState({ todos: [newTodo, ...this.state.todos] })
+    const newTodo = { id: this.state.todos.length + 1, title, completed: false }
+    this.setState({
+      todos: [newTodo, ...this.state.todos],
+      todoInput: ''
+    })
   }
 
   removeTodo = id => {
@@ -32,20 +47,27 @@ class App extends React.Component {
     this.addTodo(this.state.todoInput)
   }
 
+  componentDidMount () {
+    this.getTodos()
+  }
+
   render () {
-    const { todos } = this.state
+    console.log('app rendered with state:', this.state)
+    const { todos, todoInput } = this.state
+    const { removeTodo, handleSubmit, updateTodoInput, toggleComplete } = this
     return (
       <div className='App'>
         <h1>Todo App</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input onChange={this.updateTodoInput} placeholder='todo title' />
-          <button>ADD TODO</button>
-        </form>
-        <ul>
-          {todos.map(todo => (
-            <li key={todo.id}>{todo.title}</li>
-          ))}
-        </ul>
+        <NewTodoForm
+          handleSubmit={handleSubmit}
+          todoInput={todoInput}
+          updateTodoInput={updateTodoInput}
+        />
+        <TodoList
+          toggleComplete={toggleComplete}
+          todos={todos}
+          removeTodo={removeTodo}
+        />
       </div>
     )
   }
