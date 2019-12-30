@@ -41,7 +41,10 @@ class Enemy extends Entity {
   constructor(startingPos, speed) {
     super(startingPos, "enemySprite");
     this.speed = speed;
+    this.constructor.all.push(this);
   }
+
+  static all = [];
 
   moveTowardsPlayer() {
     this.x -= this.speed;

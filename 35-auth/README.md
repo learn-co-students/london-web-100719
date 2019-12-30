@@ -142,6 +142,6 @@ config.middleware.insert_before 0, Rack::Cors do
 end
 ```
 
-`auth#validate`
+`users#validate_token`
 
 `localStorage`

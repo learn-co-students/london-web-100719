@@ -9,6 +9,8 @@ Enemy < Entity
 
 class methods
 
+Enemy.all, constructor
+
 UI
 
 - this.element
