@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+nav {
+  background: #6cbb8f;
+}
+nav > span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.75em;
+  line-height: 1.5em;
+}
