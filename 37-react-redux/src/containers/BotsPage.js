@@ -3,6 +3,8 @@ import API from "../API";
 import BotCollection from "./BotCollection";
 import YourBotArmy from "./YourBotArmy";
 import BotSpecs from "../components/BotSpecs";
+import { connect } from "react-redux";
+import { ACTION_TYPES } from "../action_types";
 
 class BotsPage extends React.Component {
   state = {
@@ -12,7 +14,7 @@ class BotsPage extends React.Component {
   };
 
   componentDidMount() {
-    API.getBots().then(allBots => this.setState({ allBots }));
+    API.getBots().then(allBots => this.props.addBots(allBots));
   }
 
   enlistBot = bot => {
@@ -46,27 +48,26 @@ class BotsPage extends React.Component {
       <React.Fragment>
         <YourBotArmy bots={enlistedBots} delistBot={this.delistBot} />
         <div className="ui container">
-          {this.state.selectedBot ? (
-            <BotSpecs
-              bot={this.state.selectedBot}
-              back={() => this.setState({ selectedBot: undefined })}
-              handleEnlistedToggle={() =>
-                selectedBotIsEnlisted
-                  ? this.delistBot(this.state.selectedBot)
-                  : this.enlistBot(this.state.selectedBot)
-              }
-              enlistButtonLabel={selectedBotIsEnlisted ? "DELIST" : "ENLIST"}
-            />
-          ) : (
-            <BotCollection
-              bots={botsForCollection}
-              handleBotClick={this.selectBot}
-            />
-          )}
+          {this.props.showBotSpecs ? <BotSpecs /> : <BotCollection />}
         </div>
       </React.Fragment>
     );
   }
 }
 
-export default BotsPage;
+const mapStateToProps = state => {
+  return {
+    showBotSpecs: !!state.selectedBotId
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addBots: bots =>
+      dispatch({ type: ACTION_TYPES.ADD_BOTS, payload: { bots } })
+  };
+};
+
+const createConnectedComponent = connect(mapStateToProps, mapDispatchToProps);
+
+export default createConnectedComponent(BotsPage);

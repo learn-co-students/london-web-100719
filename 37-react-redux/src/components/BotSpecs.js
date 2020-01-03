@@ -1,4 +1,6 @@
 import React from "react";
+import { ACTION_TYPES } from "../action_types";
+import { connect } from "react-redux";
 
 const BotSpecs = props => {
   let { bot } = props;
@@ -67,15 +69,14 @@ const BotSpecs = props => {
                 </div>
               </div>
             </div>
-            <button
-              className="ui button fluid"
-              onClick={props.back}
-            >
+            <button className="ui button fluid" onClick={props.back}>
               Go Back
             </button>
             <button
               className="ui button fluid"
-              onClick={props.handleEnlistedToggle}
+              onClick={() =>
+                props.isEnlisted ? props.delistBot(bot) : props.enlistBot(bot)
+              }
             >
               {props.enlistButtonLabel}
             </button>
@@ -84,7 +85,34 @@ const BotSpecs = props => {
       </div>
     </div>
   );
-
 };
 
-export default BotSpecs;
+const mapStateToProps = state => {
+  return {
+    bot: state.bots.find(b => b.id === state.selectedBotId),
+    isEnlisted: state.enlistedBots.includes(state.selectedBotId),
+    enlistButtonLabel: state.enlistedBots.includes(state.selectedBotId)
+      ? "Delist"
+      : "enlist"
+  };
+};
+// bot={this.state.selectedBot}
+// enlistButtonLabel={selectedBotIsEnlisted ? "DELIST" : "ENLIST"}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    back: () => dispatch({ type: ACTION_TYPES.DESELECT_BOT }),
+    enlistBot: bot =>
+      dispatch({ type: ACTION_TYPES.ENLIST_BOT, payload: { bot } }),
+    delistBot: bot =>
+      dispatch({ type: ACTION_TYPES.DELIST_BOT, payload: { bot } })
+  };
+};
+// back={() => this.setState({ selectedBot: undefined })}
+// handleEnlistedToggle={() =>
+//   selectedBotIsEnlisted
+//     ? this.delistBot(this.state.selectedBot)
+//     : this.enlistBot(this.state.selectedBot)
+// }
+
+export default connect(mapStateToProps, mapDispatchToProps)(BotSpecs);
