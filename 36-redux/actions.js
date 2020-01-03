@@ -1,0 +1,5 @@
+const ACTION_TYPES = {
+  COUNT_UP: "COUNT_UP",
+  COUNT_DOWN: "COUNT_DOWN",
+  KEY_DOWN: "KEY_DOWN"
+};
