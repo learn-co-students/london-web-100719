@@ -7,17 +7,14 @@ class YourBotArmy extends React.Component {
   render() {
     return (
       <div className="ui segment inverted olive bot-army">
-        <div className="ui five column grid">
-          <div className="row bot-army-row">
-            {
-              this.props.bots.map(bot => <BotCard bot={bot} handleClick={() => this.props.delistBot(bot)} />)
-            }
-          </div>
+        <div className="ui cards bot-army-row">
+          {this.props.bots.map(bot => (
+            <BotCard bot={bot} handleClick={() => this.props.delistBot(bot)} />
+          ))}
         </div>
       </div>
     );
   }
-
-};
+}
 
 export default YourBotArmy;

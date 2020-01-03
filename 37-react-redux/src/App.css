@@ -12,3 +12,11 @@
 .ui.grid {
   padding: 0px 20px;
 }
+
+.ui.cards.bot-army-row {
+  flex-wrap: nowrap;
+}
+
+.ui.small.card {
+  max-width: 150px;
+}
